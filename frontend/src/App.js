@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link,Route,Switch} from "react-router-dom"
+import {Link,Route,Routes} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AddReview from "./components/add-review";
@@ -38,8 +38,8 @@ class App extends Component () {
       </nav>
 
       <div className="container mt-3">
-        <Switch>
-          <Route exact path={["/", "/restaurants"]} component={RestaurantsList} />
+        <Routes>
+          <Route path={["/", "/restaurants"]} element={<RestaurantsList/>} />
           <Route 
             path="/restaurants/:id/review"
             render={(props) => (
@@ -58,7 +58,7 @@ class App extends Component () {
               <Login {...props} login={login} />
             )}
           />
-        </Switch>
+        </Routes>
       </div>
       </div>
 
