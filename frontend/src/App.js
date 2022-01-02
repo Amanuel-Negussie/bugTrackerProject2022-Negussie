@@ -9,8 +9,23 @@ import Login from "./components/login";
 
 
 class App extends Component () {
+  constructor(props){
+    super(props);
+    this.state = {
+      user:null
+    };
+  }
+  async login(user = null) {
+    this.setUser(user);
+  }
+
+  async  logout() {
+    this.setUser(null)
+  }
+
   render () {
     return (
+      
       <div>
          <nav className="navbar navbar-expand navbar-dark bg-dark">
         <a href="/restaurants" className="navbar-brand">
@@ -23,16 +38,15 @@ class App extends Component () {
             </Link>
           </li>
           <li className="nav-item" >
-            { user ? (
-              <a onClick={logout} className="nav-link" style={{cursor:'pointer'}}>
-                Logout {user.name}
+            { this.user ? (
+              <a onClick={()=> this.setUser(null)} className="nav-link" style={{cursor:'pointer'}}>
+                Logout {this.user}
               </a>
             ) : (            
             <Link to={"/login"} className="nav-link">
               Login
             </Link>
             )}
-
           </li>
         </div>
       </nav>
@@ -43,19 +57,19 @@ class App extends Component () {
           <Route 
             path="/restaurants/:id/review"
             render={(props) => (
-              <AddReview {...props} user={user} />
+              <AddReview {...props} user={this.user} />
             )}
           />
           <Route 
             path="/restaurants/:id"
             render={(props) => (
-              <Restaurant {...props} user={user} />
+              <Restaurant {...props} user={this.user} />
             )}
           />
           <Route 
             path="/login"
             render={(props) => (
-              <Login {...props} login={login} />
+              <Login {...props} login={this} />
             )}
           />
         </Routes>
