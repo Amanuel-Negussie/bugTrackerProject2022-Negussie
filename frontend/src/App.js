@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link,NavLink,Route,Routes} from "react-router-dom"
+import {Link,BrowserRouter as Router,Route,Routes} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AddReview from "./components/add-review";
@@ -21,18 +21,22 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar navbar-expand navbar-dark bg-dark">
+    <nav className="navbar navbar-expand navbar-dark bg-dark">
       <a href="/restaurants" className="navbar-brand">
-        Restaurant Reviews 
-        </a>
-        <div className="navbar-nav mr-auto">
-        <li className="nav-item">
-         
-          </li>
-        </div>
-
+        Restaurant Reviews
+      </a>
       </nav>
-    </div>
+   <Router>
+     <Routes>
+       <Route path = "/restaurants" element ={<p>Test</p>}  />
+       <Route 
+            path="/restaurants/:id/review"
+            render={(props) => (
+              <AddReview {...props} user={user} />
+            )}/>
+     </Routes>
+   </Router>
+   </div>
   );
 }
 
