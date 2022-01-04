@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Link,BrowserRouter as Router,Route,Routes} from "react-router-dom"
+import {BrowserRouter as Router,Route,Routes, Navigate, Link} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import AddReview from "./components/add-review";
@@ -22,22 +22,39 @@ function App() {
   return (
     <div>
     <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <a href="/restaurants" className="navbar-brand">
+      <a href="/home" className="navbar-brand">
         Restaurant Reviews
       </a>
       </nav>
    <Router>
      <Routes>
-       <Route path = "/restaurants" element ={<p>Test</p>}  />
-       <Route 
-            path="/restaurants/:id/review"
-            render={(props) => (
-              <AddReview {...props} user={user} />
-            )}/>
+       <Route path = "/home" element ={<Home/>}  />
+       <Route path = "/myapps" element ={<Navigate replace to="/learn"/>}  />
+       <Route path = "/learn" element ={<Learn/>} />
      </Routes>
    </Router>
    </div>
   );
 }
+function Home ()
+{
+  return(
+    <div>
+      <h1> Home Route </h1>
+    </div>
+  )
+}
 
+function Learn ()
+{
+  return(
+    <div>
+      <h1> Learn </h1>
+      <h4> here are some things to learn</h4>
+      <Link className ="btn btn-success" to ="/learn/course"> courses</Link> |
+      <Link className = "btn btn-primary"to ="/learn/course"> bundle</Link>
+    </div>
+  )
+}
 export default App;
+
