@@ -6,6 +6,12 @@ import AddReview from "./components/add-review";
 import Restaurant from "./components/restaurants";
 import RestaurantsList from "./components/restaurants-list";
 import Login from "./components/login";
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import {Navbar, Form, FormControl, Button, NavDropdown, Nav, Container} from 'react-bootstrap'
+import $ from 'jquery';
+import Popper from 'popper.js';
 
 
 function App() {
@@ -20,67 +26,109 @@ function App() {
   }
 
   return (
-    <div>
-    <nav className="navbar navbar-expand navbar-dark bg-dark">
-      <a href="/" className="navbar-brand">  Home  </a>
-      
-      
-      <div class = "collapse navbar-collapse" id ="navbarSuportedContent">
-        <ul class ="navbar-nav mr-auto">
-          <li class = "nav-item active">
-            <a class ="nav-link" href="/learn">View Issues<span class ="sr-only"></span>  </a>
-          </li>
-          <li class="nav-item">
-        <a class="nav-link" href="#">Report Issues</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Manage Account <img src={logo} width="20" height="20"></img>
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-    </div>
-      </nav>
+    <>
+<Navbar bg="light" expand="sm">
+  <Container fluid>
+    <Navbar.Brand href="/">Issue Tracker</Navbar.Brand>
+    <Navbar.Toggle aria-controls="navbarScroll" />
+    <Navbar.Collapse id="navbarScroll">
+      <Nav
+        className="me-auto my-2 my-lg-0"
+        style={{ maxHeight: '100px' }}
+        navbarScroll
+      >
+        <Nav.Link href="/viewissues">View Issues</Nav.Link>
+        <Nav.Link href="/changelog">Change Log</Nav.Link>
+        <Nav.Link href="/roadmap">Road Map</Nav.Link>
+        <NavDropdown title="Projects" id="navbarScrollingDropdown">
+          <NavDropdown.Item href="/viewProjects">View All Projects</NavDropdown.Item>
+          <NavDropdown.Item href="/createProject">Create New Project</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="/manageProject">
+            Manage Current Project
+          </NavDropdown.Item>
+        </NavDropdown>
+        <Nav.Link href="#" disabled>
+          Link
+        </Nav.Link>
+      </Nav>
+      <Form className="d-flex">
+        <FormControl
+          type="search"
+          placeholder="Search"
+          className="me-2"
+          aria-label="Search"
+        />
+        <Button variant="outline-success">Search</Button>
+      </Form>
+    </Navbar.Collapse>
+  </Container>
+</Navbar>
    <Router>
      <Routes>
-       <Route path = "/home" element ={<Learn/>}  />
-       <Route path = "/myapps" element ={<Navigate replace to="/learn"/>}  />
-       <Route path = "/learn" element ={<Learn/>} />
+       <Route path = "/viewissues" element ={<Navigate replace to="/issues"/>}  />
+       <Route path = "/issues" element ={<ViewIssues/>} />
      </Routes>
    </Router>
-   </div>
+   </>
   );
 }
 function Home ()
 {
   return(
-    <div>
-      <h1> Home Route </h1>
-    </div>
+    <>
+    <Navbar bg="light">
+      <Container>
+        <Navbar.Brand href="#home">Brand link</Navbar.Brand>
+      </Container>
+    </Navbar>
+    <br />
+    <Navbar bg="light">
+      <Container>
+        <Navbar.Brand>Brand text</Navbar.Brand>
+      </Container>
+    </Navbar>
+    <br />
+    <Navbar bg="dark">
+    <Container>
+      <Navbar.Brand href="#home">
+        <img
+          src="/logo.svg"
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+          alt="React Bootstrap logo"
+        />
+      </Navbar.Brand>
+    </Container>
+    </Navbar>
+    <br />
+    <Navbar bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home">
+          <img
+            alt=""
+            src="/logo.svg"
+            width="30"
+            height="30"
+            className="d-inline-block align-top"
+          />{' '}
+        React Bootstrap
+        </Navbar.Brand>
+      </Container>
+    </Navbar>
+  </>
   )
 }
 
-function Learn ()
+function ViewIssues ()
 {
   return(
     <div>
-      <h1> Learn </h1>
-      <h4> here are some things to learn</h4>
-      <Link className ="btn btn-success" to ="/learn/course"> courses</Link> |
-      <Link className = "btn btn-primary"to ="/learn/course"> bundle</Link>
+      <h1> Issues </h1>
+      <h4> Welcome to All Our Issues</h4>
+      <Link className ="btn btn-success" to ="/issues/resolved"> Resolved</Link> |
+      <Link className = "btn btn-primary"to ="/issues/unresolved"> Unresolved</Link>
     </div>
   )
 }
