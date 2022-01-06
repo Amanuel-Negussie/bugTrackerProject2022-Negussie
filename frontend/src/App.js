@@ -27,9 +27,9 @@ function App() {
 
   return (
     <>
-<Navbar bg="light" expand="sm">
+<Navbar bg="dark" variant= "dark" expand="sm">
   <Container fluid>
-    <Navbar.Brand href="/">Issue Tracker</Navbar.Brand>
+    <Navbar.Brand href="/">Bug Tracker</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
       <Nav
@@ -49,7 +49,7 @@ function App() {
           </NavDropdown.Item>
         </NavDropdown>
         <Nav.Link href="#" disabled>
-          Link
+          Future Ideas
         </Nav.Link>
       </Nav>
       <Form className="d-flex">
