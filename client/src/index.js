@@ -5,7 +5,7 @@ import App from './App';
 import {BrowserRouter as Router, Routes,RouterProps} from 'react-router-dom'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap';
 import $ from 'jquery';
 import Popper from 'popper.js';
 <link

@@ -8,7 +8,7 @@ import RestaurantsList from "./components/restaurants-list";
 import Login from "./components/login";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+import 'bootstrap';
 import {Navbar, Form, FormControl, Button, NavDropdown, Nav, Container} from 'react-bootstrap'
 import $ from 'jquery';
 import Popper from 'popper.js';
@@ -37,14 +37,14 @@ function App() {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="/viewissues">View Issues</Nav.Link>
-        <Nav.Link href="/changelog">Change Log</Nav.Link>
+        <Nav.Link href="/view-issues">View Issues</Nav.Link>
+        <Nav.Link href="/change-log">Change Log</Nav.Link>
         <Nav.Link href="/roadmap">Road Map</Nav.Link>
         <NavDropdown title="Projects" id="navbarScrollingDropdown">
-          <NavDropdown.Item href="/viewProjects">View All Projects</NavDropdown.Item>
-          <NavDropdown.Item href="/createProject">Create New Project</NavDropdown.Item>
+          <NavDropdown.Item href="/view-projects">View All Projects</NavDropdown.Item>
+          <NavDropdown.Item href="/create-project">Create New Project</NavDropdown.Item>
           <NavDropdown.Divider />
-          <NavDropdown.Item href="/manageProject">
+          <NavDropdown.Item href="/manage-project">
             Manage Current Project
           </NavDropdown.Item>
         </NavDropdown>
@@ -66,7 +66,7 @@ function App() {
 </Navbar>
    <Router>
      <Routes>
-       <Route path = "/viewissues" element ={<Navigate replace to="/issues"/>}  />
+       <Route path = "/view-issues" element ={<Navigate replace to="/issues"/>}  />
        <Route path = "/issues" element ={<ViewIssues/>} />
      </Routes>
    </Router>
