@@ -9,7 +9,8 @@ import Login from "./components/login";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-import {Navbar, Form, FormControl, Button, NavDropdown, Nav, Container} from 'react-bootstrap'
+import {Navbar, Tab, Tabs, Carousel, Spinner, Form, FormControl, Button, NavDropdown, Nav, Container} from 'react-bootstrap'
+import { useState } from 'react';
 import $ from 'jquery';
 import Popper from 'popper.js';
 
@@ -51,7 +52,9 @@ function App() {
         <Nav.Link href="#" disabled>
           Future Ideas
         </Nav.Link>
+        <Button variant="primary">Logout</Button>{' '}
       </Nav>
+    
       <Form className="d-flex">
         <FormControl
           type="search"
@@ -68,58 +71,62 @@ function App() {
      <Routes>
        <Route path = "/view-issues" element ={<Navigate replace to="/issues"/>}  />
        <Route path = "/issues" element ={<ViewIssues/>} />
+       <Route path = "/change-log" element = {<Trial/>}/>
      </Routes>
    </Router>
    </>
   );
 }
-function Home ()
+
+function Trial ()
 {
-  return(
-    <>
-    <Navbar bg="light">
-      <Container>
-        <Navbar.Brand href="#home">Brand link</Navbar.Brand>
-      </Container>
-    </Navbar>
-    <br />
-    <Navbar bg="light">
-      <Container>
-        <Navbar.Brand>Brand text</Navbar.Brand>
-      </Container>
-    </Navbar>
-    <br />
-    <Navbar bg="dark">
-    <Container>
-      <Navbar.Brand href="#home">
-        <img
-          src="/logo.svg"
-          width="30"
-          height="30"
-          className="d-inline-block align-top"
-          alt="React Bootstrap logo"
-        />
-      </Navbar.Brand>
-    </Container>
-    </Navbar>
-    <br />
-    <Navbar bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">
-          <img
-            alt=""
-            src="/logo.svg"
-            width="30"
-            height="30"
-            className="d-inline-block align-top"
-          />{' '}
-        React Bootstrap
-        </Navbar.Brand>
-      </Container>
-    </Navbar>
-  </>
+  return (
+  <>
+  <Carousel variant="dark">
+  <Carousel.Item>
+    <img
+      className="d-block w-50 rounded mx-auto"
+      src="bug-icon.png"
+      alt="First slide"
+     
+    />
+    <Carousel.Caption>
+      <h3>This is a bug</h3>
+      <p>Bugs are cool and so are you.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+       className="d-block w-50 rounded mx-auto"
+       src="bug-icon.png"
+       alt="First slide"
+       width={100}
+       height={600}
+    />
+
+    <Carousel.Caption>
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-50 rounded mx-auto"
+      src="bug-icon.png"
+      alt="First slide"
+      width={100}
+      height={600}
+    />
+
+    <Carousel.Caption>
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
+</>
   )
-}
+    }
 
 function ViewIssues ()
 {
@@ -127,6 +134,7 @@ function ViewIssues ()
     <div>
       <h1> Issues </h1>
       <h4> Welcome to All Our Issues</h4>
+      <Spinner animation="border" variant="primary" />
       <Link className ="btn btn-success" to ="/issues/resolved"> Resolved</Link> |
       <Link className = "btn btn-primary"to ="/issues/unresolved"> Unresolved</Link>
     </div>
