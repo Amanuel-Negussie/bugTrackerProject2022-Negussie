@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-<Navbar bg="dark" variant= "dark" expand="sm">
+<Navbar bg="dark" variant= "dark" expand="md">
   <Container fluid>
     <Navbar.Brand href="/">Bug Tracker</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
