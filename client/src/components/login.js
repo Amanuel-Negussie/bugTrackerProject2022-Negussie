@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+
 const Login = props => {
 
   const initialUserState = {
@@ -55,5 +56,10 @@ const Login = props => {
     </div>
   );
 };
+
+export const logout = () => {
+  return localStorage.removeItem('userInfo')
+}
+
 
 export default Login;

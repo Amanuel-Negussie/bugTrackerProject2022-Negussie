@@ -6,8 +6,9 @@ import {BrowserRouter as Router, Routes,RouterProps} from 'react-router-dom'
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
-import $ from 'jquery';
-import Popper from 'popper.js';
+import {QueryClient,QueryClientProvider} from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -15,7 +16,13 @@ import Popper from 'popper.js';
   crossorigin="anonymous"
 />
 
-ReactDOM.render(React.createElement(App),
+const queryClient = new QueryClient()
+
+ReactDOM.render(
+  <QueryClientProvider client={queryClient}>
+  <App />
+  <ReactQueryDevtools />
+</QueryClientProvider>,
   document.getElementById('root')
 );
 

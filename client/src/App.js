@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import {BrowserRouter as Router,Route,Routes, Navigate, Link, Outlet} from "react-router-dom"
+import  useEffect from "react";
+import {BrowserRouter as Router,Route,Routes, Navigate, Link, Outlet, BrowserRouter} from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "./logo.svg"
 import AddReview from "./components/add-review";
@@ -11,20 +11,49 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap';
 import {Navbar, Tab, Tabs, Carousel, Spinner, Form, FormControl, Button, NavDropdown, Nav, Container} from 'react-bootstrap'
 import { useState } from 'react';
+import jwt_decode from 'jwt-decode'
+import {logout} from './components/login'
+import Navigation from './components/Navigation'
+import {ViewIssues} from './'
+
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from 'react-query'
 import $ from 'jquery';
 import Popper from 'popper.js';
 
+const queryClient = new QueryClient()
 
-function App() {
-  const [user, setUser] = React.useState(null);
+const App = () => {
+  const { mutateAsync } = useMutation(logout, () => {})
+  useQuery('userInfo', () => {})
 
-  async function login(user = null) {
-    setUser(user);
-  }
+  let userInfo = localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo')).token
+    : null
 
-  async function logout() {
-    setUser(null)
-  }
+  useEffect(() => {
+    window.addEventListener('storage', () => {
+      if (userInfo) mutateAsync({})
+    })
+    window.addEventListener('click', () => {
+      if (userInfo) {
+        const decoded = jwt_decode(userInfo && userInfo)
+
+        if (decoded.exp * 1000 < Date.now()) mutateAsync({})
+      }
+    })
+    window.addEventListener('focus', () => {
+      if (userInfo) {
+        const decoded = jwt_decode(userInfo && userInfo)
+        if (decoded.exp * 1000 < Date.now()) mutateAsync({})
+      }
+    })
+  }, [mutateAsync, userInfo])
 
   return (
     <>
@@ -78,67 +107,12 @@ function App() {
   );
 }
 
-function Trial ()
+
+function ToDo()
 {
-  return (
-  <>
-  <Carousel variant="dark">
-  <Carousel.Item>
-    <img
-      className="d-block w-50 rounded mx-auto"
-      src="bug-icon.png"
-      alt="First slide"
-     
-    />
-    <Carousel.Caption>
-      <h3>This is a bug</h3>
-      <p>Bugs are cool and so are you.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-       className="d-block w-50 rounded mx-auto"
-       src="bug-icon.png"
-       alt="First slide"
-       width={100}
-       height={600}
-    />
 
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-50 rounded mx-auto"
-      src="bug-icon.png"
-      alt="First slide"
-      width={100}
-      height={600}
-    />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
-</>
-  )
-    }
-
-function ViewIssues ()
-{
-  return(
-    <div>
-      <h1> Issues </h1>
-      <h4> Welcome to All Our Issues</h4>
-      <Spinner animation="border" variant="primary" />
-      <Link className ="btn btn-success" to ="/issues/resolved"> Resolved</Link> |
-      <Link className = "btn btn-primary"to ="/issues/unresolved"> Unresolved</Link>
-    </div>
-  )
 }
+
+
 export default App;
 
