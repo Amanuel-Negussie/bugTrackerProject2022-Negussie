@@ -59,13 +59,6 @@ const Navigation = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-       <Router>
-         <Routes>
-           <Route path = "/view-issues" element ={<Navigate replace to="/issues"/>}  />
-           <Route path = "/issues" element ={<ViewIssues/>} />
-           <Route path = "/change-log" element = {<Trial/>}/>
-         </Routes>
-       </Router>
        </>
       )
 

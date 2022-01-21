@@ -1,6 +1,16 @@
 import React from 'react'
 import { Navigate, useRoutes } from 'react-router-dom'
 
+import ProfileScreen from '../../screens/ProfileScreen'
+import HomeScreen from '../../screens/HomeScreen'
+import UserListScreen from '../../screens/UserListScreen'
+import UserLogHistoryScreen from '../../screens/LogHistoryScreen'
+import NotFound from '../../components/NotFound'
+import LoginScreen from '../../screens/LoginScreen'
+import ForgotPasswordScreen from '../../screens/ForgotPasswordScreen'
+import RegisterScreen from '../../screens/RegisterScreen'
+import ResetPasswordScreen from '../../screens/ResetPasswordScreen'
+
 
 
 const AppRoutes = () => {
@@ -29,7 +39,7 @@ const AppRoutes = () => {
     { path: 'login', element: <LoginScreen /> },
     { path: 'forgot', element: <ForgotPasswordScreen /> },
     { path: 'register', element: <RegisterScreen /> },
-    { path: 'reset/:resetToken', element: <ResetPasswordScreen /> },
+    { path: 'reset/:resetToken', element: <ResetPasswordScreen/> },
 
     { path: '*', element: <NotFound /> },
   ])
