@@ -9,7 +9,7 @@ const Footer = () => {
           <div className='col text-center py-3'>
             Copyright 2022 &copy;{' '}
             <a href='/' target='blank'>
-              Website
+              Bug Tracker
             </a>
           </div>
         </div>
