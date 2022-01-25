@@ -9,6 +9,7 @@ import 'bootstrap';
 import {QueryClient,QueryClientProvider} from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 
+
 <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
