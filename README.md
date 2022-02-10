@@ -4,4 +4,5 @@
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
 
 ## Menu Bar as of Now
-<img width="1792" alt="Screen Shot 2022-02-09 at 5 05 31 PM" src="https://user-images.githubusercontent.com/74369791/153298144-b49e8977-c3f7-4987-9cca-004184b20f85.png">
+
+![Screen Shot 2022-02-09 at 9 57 50 PM](https://user-images.githubusercontent.com/74369791/153328666-da4b979d-ea91-4958-93bc-001eff5df6a4.png)
