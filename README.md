@@ -73,7 +73,7 @@ In terminal you can install nodemon globally: `npm install -g nodemon`
 In backend folder you can create a new file called server.js: `mkdir server.js`
 In server.js you can add this code: 
 
-```
+```jsx
 import express from 'express'
 import cors from 'cors'
 import issues from './api/issues.route.js'
@@ -92,7 +92,7 @@ export default app
 #### **Explaining the Code**
 We first import the express and cors middleware. We also import
 issues.route.js which is a separate file we will create later to store our routes.
-```
+```jsx
 import express from 'express'
 import cors from 'cors'
 import issues from './api/issues.route.js'
@@ -104,7 +104,7 @@ issues.route.js which is a separate file we will create later to store our route
 
 We create the server with ```const app = express()```\
 We attach the *cors* and *express.json* middleware that express will use with:
-```
+```jsx
 app.use(cors())
 app.use(express.json())
 ```
@@ -119,7 +119,7 @@ Without this middleware, data retrieval would be much more difficult.
 
 Create an .env file where you will store the URI of our database in MongoDB Atlas. 
 If you haven't created an account, you can create a free one in MongoDB Atlas and you can choose from the options of cloud server providers. ( *I chose AWS* ).
-Also make sure if you are doing this on GitHub that you add this .env file to .gitignore because your URI is sensitive information.
+**** WARNING List your .env file to .gitignore, and make sure not to share your URI with anyone, because your URI is sensitive information.
 
 When you're at your cluster click '**Connect**'.
 
@@ -135,9 +135,15 @@ Choose '**Connect Your Application**' and copy the URL provided.
 
 In your **.env** file there should be three variables:
 
-`ISSUES_DB_URI = mongodb+srv://newuser1:`**pwd123**`@cluster0.vxjpr.mongodb.net/`**issues_db**`?retryWrites=true&w=majority`\
-`ISSUES_NS = issues_db //our database name`\
-`PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In development, I used 3001 for example`
+```jsx
+ISSUES_DB_URI = mongodb+srv://newuser1:pwd123@cluster0.vxjpr.mongodb.net/issues_db?retryWrites=true&w=majority
+```
+```jsx
+ISSUES_NS = issues_db //our database name
+```
+```jsx
+PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In development, I used 3001 for example
+```
 
 1. The **ISSUES_DB_URI** variable stores your URI that you copied and updated with your password and database you want to access.
 2. The **ISSUES_NS** ariable stores the namespace of the database. 
