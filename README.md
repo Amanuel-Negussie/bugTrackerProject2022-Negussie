@@ -1,4 +1,22 @@
-# bugTrackerProject2022-Negussie
+#Bug/Issue Tracker Project using MERN framework
+
+Table of Contents
+=================
+
+* [Project Goal](#project-goal)
+* [Menu Bar as of Now](#menu-bar-as-of-now)
+* [Steps to Create Project](#steps-to-create-project)
+  * [1\. Setup of Node\.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
+    * [a) Download and Setup Node\.Js](#a-download-and-setup-nodejs)
+    * [b) Create Directories for backend and Create a Package\.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
+    * [c) Create a Package\.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
+    * [d) Install Few Dependencies](#d-install-few-dependencies)
+    * [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
+  * [2\. Setup of Node\.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
+    * [a) Building Server\.js](#a-building-serverjs)
+    * [b) Explaining the Code of Server\.js](#b-explaining-the-code-of-serverjs)
+    * [c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
+    * [d) Connect to Database and Start Server \- <em>index\.js</em>](#d-connect-to-database-and-start-server---indexjs)
 
 ## Project Goal 
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
@@ -89,7 +107,7 @@ res.status(404).json({error: "not found"})
 })
 export default app
 ```
-#### **Explaining the Code**
+#### b) Explaining the Code of Server.js
 We first import the express and cors middleware. We also import
 issues.route.js which is a separate file we will create later to store our routes.
 ```jsx
@@ -115,7 +133,7 @@ accept JSON in a request ’ s body.*
 middleware let’s us retrieve data from a request via the body attribute.
 Without this middleware, data retrieval would be much more difficult.
 
-#### b) Storing Valuable Environment Variables 
+#### c) Storing Valuable Environment Variables 
 
 Create an .env file where you will store the URI of our database in MongoDB Atlas. 
 If you haven't created an account, you can create a free one in MongoDB Atlas and you can choose from the options of cloud server providers. ( *I chose AWS* ).
@@ -149,7 +167,7 @@ PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In 
 2. The **ISSUES_NS** ariable stores the namespace of the database. 
 3. THE **PORT** variable stores the starting port of the server.
 
-#### c) Connect to Database and Start Server - *index.js*
+#### d) Connect to Database and Start Server - *index.js*
 
 
 
