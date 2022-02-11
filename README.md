@@ -3,20 +3,21 @@
 Table of Contents
 =================
 
-* [Project Goal](#project-goal)
-* [Menu Bar as of Now](#menu-bar-as-of-now)
-* [Steps to Create Project](#steps-to-create-project)
-  * [1\. Setup of Node\.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
-    * [a) Download and Setup Node\.Js](#a-download-and-setup-nodejs)
-    * [b) Create Directories for backend and Create a Package\.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
-    * [c) Create a Package\.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
-    * [d) Install Few Dependencies](#d-install-few-dependencies)
-    * [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
-  * [2\. Setup of Node\.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
-    * [a) Building Server\.js](#a-building-serverjs)
-    * [b) Explaining the Code of Server\.js](#b-explaining-the-code-of-serverjs)
-    * [c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
-    * [d) Connect to Database and Start Server \- <em>index\.js</em>](#d-connect-to-database-and-start-server---indexjs)
+- [Table of Contents](#table-of-contents)
+  - [Project Goal](#project-goal)
+  - [Menu Bar as of Now](#menu-bar-as-of-now)
+  - [Steps to Create Project](#steps-to-create-project)
+    - [1. Setup of Node.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
+      - [a) Download and Setup Node.Js](#a-download-and-setup-nodejs)
+      - [b) Create Directories for backend and Create a Package.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
+      - [c) Create a Package.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
+      - [d) Install Few Dependencies](#d-install-few-dependencies)
+      - [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
+    - [2. Setup of Node.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
+      - [a) Building Server.js](#a-building-serverjs)
+      - [b) Explaining the Code of Server.js](#b-explaining-the-code-of-serverjs)
+      - [c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
+      - [d) Connect to Database and Start Server - *index.js*](#d-connect-to-database-and-start-server---indexjs)
 
 ## Project Goal 
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
@@ -168,6 +169,7 @@ PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In 
 3. THE **PORT** variable stores the starting port of the server.
 
 #### d) Connect to Database and Start Server - *index.js*
+
 
 
 
