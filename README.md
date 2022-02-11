@@ -1,11 +1,11 @@
-#Bug/Issue Tracker Project using MERN framework
+# Bug/Issue Tracker Project using MERN framework
 
 Table of Contents
 =================
-
+- [Bug/Issue Tracker Project using MERN framework](#bugissue-tracker-project-using-mern-framework)
 - [Table of Contents](#table-of-contents)
   - [Project Goal](#project-goal)
-  - [Menu Bar as of Now](#menu-bar-as-of-now)
+  - [Photos of Progress](#photos-of-progress)
   - [Steps to Create Project](#steps-to-create-project)
     - [1. Setup of Node.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
       - [a) Download and Setup Node.Js](#a-download-and-setup-nodejs)
@@ -22,7 +22,7 @@ Table of Contents
 ## Project Goal 
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
 
-## Menu Bar as of Now
+## Photos of Progress
 
 ![Screen Shot 2022-02-09 at 9 57 50 PM](https://user-images.githubusercontent.com/74369791/153328666-da4b979d-ea91-4958-93bc-001eff5df6a4.png)
 
