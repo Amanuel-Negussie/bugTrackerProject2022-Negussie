@@ -1,5 +1,6 @@
 import mongodb from "mongodb"
 const ObjectId = mongodb.ObjectId
+import IssueSchema from '../models/issue.model.js'
 
 let issues
 
@@ -9,12 +10,25 @@ export default class issuesDAO1 {
         if (issues) {
             return
         } try {
-            issues = await conn.db(process.env.MOVIEREVIEWS_NS)
-                .collection('movies')
+            issues = await conn.db(process.env.ISSUES_NS)
+                .collection('issues')
         } catch (e) {
-            console.error(`unable to connect in MoviesDAO: ${e}`)
+            console.error(`unable to connect in issuesDAO: ${e}`)
         }
     }
+
+
+  static async apiCreateIssue(req) {
+    
+    try {
+      const newIssue = await new IssueSchema(req.body)
+      return await issues.insertOne(newIssue)
+    } catch (e) {
+      console.error(`Unable to post issue: ${e}`)
+      return { error: e }
+    }
+  }
+
 
     static async getIssues({// default filter
         filters = null,

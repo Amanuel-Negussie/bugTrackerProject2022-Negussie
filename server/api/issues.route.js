@@ -13,7 +13,8 @@ router.route("/id/:id").get(IssuesController.apiGetRestaurantById)
 router.route("/cuisines").get(IssuesController.apiGetRestaurantCuisines)
 
 
-router.route("/issues/").get(IssuesController1.apiGetIssues)
+router.route("/issues").get(IssuesController1.apiGetIssues)
+router.route("/issues").post(IssuesController1.apiPostIssue)
 
 router
   .route("/review")

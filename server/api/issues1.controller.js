@@ -1,6 +1,7 @@
 import issuesDAO1 from "../dao/issuesDAO1.js"
 
 
+
 export default class IssuesController1 {
     static async apiGetIssues(req, res, next) {
         const issuesPerPage = req.query.issuesPerPage ? parseInt(req.query.issuesPerPage) : 20
@@ -11,7 +12,7 @@ export default class IssuesController1 {
         } else if (req.query.title) {
             filters.title = req.query.title
         }
-        const {issuesList, totalNumIssues } = await issuesDAO1.getIssues({
+        const { issuesList, totalNumIssues } = await issuesDAO1.getIssues({
             filters, page,
             issuesPerPage
         })
@@ -23,6 +24,23 @@ export default class IssuesController1 {
             entries_per_page: issuesPerPage,
             total_results: totalNumIssues,
         }
-        res.json(response)
+        res.status(200).json(response)
     }
+
+
+
+
+    static async apiPostIssue(req, res, next) {
+        try {
+            
+
+            const ReviewResponse = await issuesDAO1.apiCreateIssue(
+                req
+            )
+            return res.json({ status: "success" })
+        } catch (e) {
+            return res.status(500).json({ error: e.message })
+        }
+    }
+
 }
