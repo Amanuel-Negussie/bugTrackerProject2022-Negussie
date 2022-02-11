@@ -5,7 +5,7 @@ const IssueSchema = new mongoose.Schema({
         title: { type: String, required: true },
         body: { type: String, required: true },
         tags: { type: [String], required: true },
-        user: { type: [String], required: true },
+        users: { type: [String], required: true },
         priority: { type: String, default: "unassigned" },
         status: { type: String, default: "todo" },
         updates: [Object],
