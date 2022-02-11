@@ -3,7 +3,14 @@ The goal is to create a Bug/Issue Tracker Web Application with a cloud server us
 
 ## Photos of Progress
 
+### Front End under Construction... 
 ![Screen Shot 2022-02-09 at 9 57 50 PM](https://user-images.githubusercontent.com/74369791/153328666-da4b979d-ea91-4958-93bc-001eff5df6a4.png)
+
+### Back End Post Successful through Insomnia
+<img width="890" alt="Screen Shot 2022-02-11 at 2 50 57 AM" src="https://user-images.githubusercontent.com/74369791/153558009-bfbe3835-8bbb-423f-aad6-b205a4f35811.png">
+
+### Back End Post Seen through MongoDB Atlas 
+<img width="795" alt="Screen Shot 2022-02-11 at 2 51 10 AM" src="https://user-images.githubusercontent.com/74369791/153557992-2dbb9984-1b38-4f4f-85ce-cd42bfcf86da.png">
 
 
 ## Steps to Create Project
