@@ -1,21 +1,24 @@
 # Bug/Issue Tracker Project using MERN framework
 
 Table of Contents
-  [Bug/Issue Tracker Project using MERN framework](#bugissue-tracker-project-using-mern-framework)
-  [Project Goal](#project-goal)
-   [Photos of Progress](#photos-of-progress)
-    [Steps to Create Project](#steps-to-create-project)
-    [1. Setup of Node.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
-     [a) Download and Setup Node.Js](#a-download-and-setup-nodejs)
- [b) Create Directories for backend and Create a Package.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
-[c) Create a Package.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
- [d) Install Few Dependencies](#d-install-few-dependencies)
- [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
-[2. Setup of Node.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
- [a) Building Server.js](#a-building-serverjs)
- [b) Explaining the Code of Server.js](#b-explaining-the-code-of-serverjs)
-[c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
- [d) Connect to Database and Start Server - *index.js*](#d-connect-to-database-and-start-server---indexjs)
+=================
+
+- [Bug/Issue Tracker Project using MERN framework](#bugissue-tracker-project-using-mern-framework)
+- [Table of Contents](#table-of-contents)
+  - [Project Goal](#project-goal)
+  - [Photos of Progress](#photos-of-progress)
+  - [Steps to Create Project](#steps-to-create-project)
+    - [1. Setup of Node.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
+      - [a) Download and Setup Node.Js](#a-download-and-setup-nodejs)
+      - [b) Create Directories for backend and Create a Package.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
+      - [c) Create a Package.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
+      - [d) Install Few Dependencies](#d-install-few-dependencies)
+      - [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
+    - [2. Setup of Node.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
+      - [a) Building Server.js](#a-building-serverjs)
+      - [b) Explaining the Code of Server.js](#b-explaining-the-code-of-serverjs)
+      - [c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
+      - [d) Connect to Database and Start Server - *index.js*](#d-connect-to-database-and-start-server---indexjs)
 
 ## Project Goal 
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
@@ -78,7 +81,6 @@ The mongodb dependency allows us to interact with our MongoDB database.
 The dotenv dependency loads environmental variables from the process.env
 file instead of setting environment variables on our development machine
 which simplifies development.*
-
 #### e) Implementing Automatic Server Restart with nodemon
 We can install nodemon which will automatically restart the server whenever changes are detected.
 You can read more about this here (https://www.npmjs.com/package/nodemon). 
@@ -94,12 +96,9 @@ In server.js you can add this code:
 import express from 'express'
 import cors from 'cors'
 import issues from './api/issues.route.js'
-
 const app = express()
-
 app.use(cors())
 app.use(express.json())
-
 app.use("/api/v1/issues", issues)
 app.use('*', (req,res)=>{
 res.status(404).json({error: "not found"})
@@ -127,11 +126,9 @@ app.use(express.json())
 ```
 >*express.json is the JSON parsing middleware to enable the server to read and
 accept JSON in a request ’ s body.*
-
 >With app.use(express.json()), the express.json()
 middleware let’s us retrieve data from a request via the body attribute.
 Without this middleware, data retrieval would be much more difficult.
-
 #### c) Storing Valuable Environment Variables 
 
 Create an .env file where you will store the URI of our database in MongoDB Atlas. 
@@ -147,7 +144,6 @@ Choose '**Connect Your Application**' and copy the URL provided.
 <img width="787" alt="Screen Shot 2022-02-10 at 3 52 44 AM" src="https://user-images.githubusercontent.com/74369791/153371629-6ea4d4cf-d213-4543-9f43-f2833375e4fd.png">
 
 >Remember to make sure that you replace the words 'password' with your user's password and replace 'MyFirstDatabase' with the database of your choice that's in your cluster. As shown below:
-
 <img width="689" alt="Screen Shot 2022-02-10 at 3 55 28 AM" src="https://user-images.githubusercontent.com/74369791/153372083-d3785bff-23b4-430d-bb97-09b81b093b48.png">
 
 In your **.env** file there should be three variables:
@@ -167,9 +163,3 @@ PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In 
 3. THE **PORT** variable stores the starting port of the server.
 
 #### d) Connect to Database and Start Server - *index.js*
-
-
-
-
-
-
