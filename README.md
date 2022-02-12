@@ -60,7 +60,7 @@ Terminal: ```mkdir bugTracker```
 Now let's move into the folder and make a directory called 'backend':
 
 Terminal: ```cd bugTracker```\
-Terminal: ```mkdir backend```\
+Terminal: ```mkdir backend```
 
 Now let's go into the backend folder for our next step
 Terminal: ```cd backend```
