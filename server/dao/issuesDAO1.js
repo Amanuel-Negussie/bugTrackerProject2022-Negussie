@@ -50,7 +50,7 @@ export default class issuesDAO1 {
                 .limit(issuesPerPage)
                 .skip(issuesPerPage * page)
             const issuesList = await cursor.toArray()
-            const totalNumIssues = await movies.countDocuments(query)
+            const totalNumIssues = await issues.countDocuments(query)
             return { issuesList, totalNumIssues }
         } catch (e) {
             console.error(`Unable to issue find command, ${e}`)
