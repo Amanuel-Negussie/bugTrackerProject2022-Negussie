@@ -37,10 +37,15 @@ export default class issuesDAO1 {
     } = {}) {
         let query
         if (filters) {
-            if ("title" in filters) {
-                query = { $text: { $search: filters['title'] } }
-            } else if ("rated" in filters) {
-                query = { "rated": { $eq: filters['rated'] } }
+            if ("text" in filters) {
+                query = { $text: { $search: filters['text'] } }
+            } else if ("title" in filters) {
+                query = { "title": { $eq: filters['title'] } }
+            } else if ("body" in filters) {
+                query = { $text: {$search: filters['body']}}
+            } 
+            else{
+                
             }
         }
         let cursor
@@ -68,7 +73,7 @@ export default class issuesDAO1 {
                 },
                 {
                     $lookup: {
-                        from: "reviews",
+                        from: "comments",
                         let: {
                             id: "$_id",
                         },
@@ -76,7 +81,7 @@ export default class issuesDAO1 {
                             {
                                 $match: {
                                     $expr: {
-                                        $eq: ["$restaurant_id", "$$id"],
+                                        $eq: ["$issues_id", "$$id"],
                                     },
                                 },
                             },
@@ -86,12 +91,12 @@ export default class issuesDAO1 {
                                 },
                             },
                         ],
-                        as: "reviews",
+                        as: "comments",
                     },
                 },
                 {
                     $addFields: {
-                        reviews: "$reviews",
+                        comments: "$comments",
                     },
                 },
             ]

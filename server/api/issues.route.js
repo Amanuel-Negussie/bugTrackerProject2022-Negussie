@@ -14,6 +14,7 @@ router.route("/cuisines").get(IssuesController.apiGetRestaurantCuisines)
 
 
 router.route("/issues").get(IssuesController1.apiGetIssues)
+router.route("/issues/id/:id").get(IssuesController1.apiGetIssuesById)
 router.route("/issues").post(IssuesController1.apiPostIssue)
 
 router
