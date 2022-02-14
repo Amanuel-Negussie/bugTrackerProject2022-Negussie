@@ -4,7 +4,7 @@ The goal of this project is to learn MERN while building a full-stack applicatio
 This ReadMe file will be the best walk through of MERN as I learn, so I can help others that may seem lost at a full-stack framework. 
 I must admit, I'm still learning the framework and for my first time in javascript, I think I did a full nose-dive.
 Enjoy! - Amanuel  
-##Table of Contents
+## Table of Contents
 <!--ts-->
    * [Project Goal](#project-goal)
    * [Photos of Progress](#photos-of-progress)
