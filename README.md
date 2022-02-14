@@ -1,3 +1,34 @@
+# BUG TRACKER PROJECT 2022 by Amanuel Negussie 
+
+The goal of this project is to learn MERN while building a full-stack application that can track bugs in code. 
+This ReadMe file will be the best walk through of MERN as I learn, so I can help others that may seem lost at a full-stack framework. 
+I must admit, I'm still learning the framework and for my first time in javascript, I think I did a full nose-dive.
+Enjoy! - Amanuel  
+##Table of Contents
+<!--ts-->
+   * [Project Goal](#project-goal)
+   * [Photos of Progress](#photos-of-progress)
+      * [Front End under Construction...](#front-end-under-construction)
+      * [Back End Post Successful through Insomnia](#back-end-post-successful-through-insomnia)
+      * [Back End Post Seen through MongoDB Atlas](#back-end-post-seen-through-mongodb-atlas)
+      * [Document Validation through MongoDB Compass](#document-validation-through-mongodb-compass)
+   * [Steps to Create Project](#steps-to-create-project)
+      * [1. Setup of Node.js, the Backend Server](#1-setup-of-nodejs-the-backend-server)
+         * [a) Download and Setup Node.Js](#a-download-and-setup-nodejs)
+         * [b) Create Directories for backend and Create a Package.json file](#b-create-directories-for-backend-and-create-a-packagejson-file)
+         * [c) Create a Package.Json files by running npm init](#c-create-a-packagejson-files-by-running-npm-init)
+         * [d) Install Few Dependencies](#d-install-few-dependencies)
+         * [e) Implementing Automatic Server Restart with nodemon](#e-implementing-automatic-server-restart-with-nodemon)
+      * [2. Setup of Node.js, the Backend Server](#2-setup-of-nodejs-the-backend-server)
+         * [a) Building Server.js](#a-building-serverjs)
+         * [b) Explaining the Code of Server.js](#b-explaining-the-code-of-serverjs)
+         * [c) Storing Valuable Environment Variables](#c-storing-valuable-environment-variables)
+         * [d) Connect to Database and Start Server - <em>index.js</em>](#d-connect-to-database-and-start-server---indexjs)
+
+<!-- Added by: amanuelnegussie, at: Mon 14 Feb 2022 03:56:25 EST -->
+
+<!--te-->
+
 ## Project Goal 
 The goal is to create a Bug/Issue Tracker Web Application with a cloud server using MERN framework (MongoDB, Express.js, React.js and Node.js).
 
@@ -12,7 +43,7 @@ The goal is to create a Bug/Issue Tracker Web Application with a cloud server us
 ### Back End Post Seen through MongoDB Atlas 
 <img width="795" alt="Screen Shot 2022-02-12 at 11 00 44 PM" src="https://user-images.githubusercontent.com/74369791/153738056-c8de33a8-07bc-4f01-8a60-531ad74f9b75.png">
 
-## Document Validation through MongoDB Compass 
+### Document Validation through MongoDB Compass 
 <img width="1418" alt="Screen Shot 2022-02-14 at 3 29 26 AM" src="https://user-images.githubusercontent.com/74369791/153827712-43c3b219-ef52-49c1-8ee3-cc33cc132ef6.png">
 
 
