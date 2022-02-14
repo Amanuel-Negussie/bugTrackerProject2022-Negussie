@@ -18,16 +18,16 @@ export default class issuesDAO1 {
     }
 
 
-  static async apiCreateIssue(req) {
-    
-    try {
-      const newIssue = await new IssueSchema(req.body)
-      return await issues.insertOne(newIssue)
-    } catch (e) {
-      console.error(`Unable to post issue: ${e}`)
-      return { error: e }
+    static async apiCreateIssue(req) {
+
+        try {
+            const newIssue = await new IssueSchema(req.body)
+            return await issues.insertOne(newIssue)
+        } catch (e) {
+            console.error(`Unable to post issue: ${e}`)
+            return { error: e }
+        }
     }
-  }
 
 
     static async getIssues({// default filter
@@ -37,10 +37,15 @@ export default class issuesDAO1 {
     } = {}) {
         let query
         if (filters) {
-            if ("title" in filters) {
-                query = { $text: { $search: filters['title'] } }
-            } else if ("rated" in filters) {
-                query = { "rated": { $eq: filters['rated'] } }
+            if ("body" in filters) {
+                query = { $text: { $search: filters['body'] } }
+            } else if ("title" in filters) {
+                query = { "title": { $eq: filters['title'] } }
+            } else if ("body" in filters) {
+                query = { "body": { $eq: filters['body'] } }
+            }
+            else {
+
             }
         }
         let cursor
@@ -57,50 +62,50 @@ export default class issuesDAO1 {
             return { issuesList: [], totalNumIssues: 0 }
         }
     }
-
     static async getIssueByID(id) {
         try {
-            const pipeline = [
-                {
-                    $match: {
-                        _id: new ObjectId(id),
-                    },
+          const pipeline = [
+            {
+                $match: {
+                    _id: new ObjectId(id),
                 },
-                {
-                    $lookup: {
-                        from: "reviews",
-                        let: {
-                            id: "$_id",
-                        },
-                        pipeline: [
-                            {
-                                $match: {
-                                    $expr: {
-                                        $eq: ["$restaurant_id", "$$id"],
-                                    },
-                                },
-                            },
-                            {
-                                $sort: {
-                                    date: -1,
-                                },
-                            },
-                        ],
-                        as: "reviews",
-                    },
-                },
-                {
-                    $addFields: {
-                        reviews: "$reviews",
-                    },
-                },
-            ]
-            return await issues.aggregate(pipeline).next()
+            },
+                  {
+                      $lookup: {
+                          from: "comments",
+                          let: {
+                              id: "$_id",
+                          },
+                          pipeline: [
+                              {
+                                  $match: {
+                                      $expr: {
+                                          $eq: ["$issue_id", "$$id"],
+                                      },
+                                  },
+                              },
+                              {
+                                  $sort: {
+                                      date: -1,
+                                  },
+                              },
+                          ],
+                          as: "comments",
+                      },
+                  },
+                  {
+                      $addFields: {
+                          comments: "$comments",
+                      },
+                  },
+              ]
+          return await issues.aggregate(pipeline).next()
         } catch (e) {
-            console.error(`Something went wrong in getIssueByID: ${e}`)
-            throw e
+          console.error(`Something went wrong in getRestaurantByID: ${e}`)
+          throw e
         }
-    }
+      }
+    
 }
 
 
