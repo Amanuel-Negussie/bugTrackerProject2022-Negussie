@@ -17,6 +17,40 @@ export default class CommentsDAO {
     }
   }
 
+  static async getComments({// default filter
+    filters = null,
+    page = 0,
+    commentsPerPage = 20, // will only get 20 issues at once
+} = {}) {
+    let query
+    if (filters) {
+        if ("comments" in filters) {
+            query = { $text: { $search: filters['comments'] } }
+        } else if ("userid" in filters) {
+            query = { "userid": { $eq: filters['userid'] } }
+        } else if ("name" in filters) {
+            query = { "name": { $eq: filters['name'] } }
+        }
+        else {
+
+        }
+    }
+    let cursor
+    try {
+        cursor = await comments
+            .find(query)
+            .limit(commentsPerPage)
+            .skip(commentsPerPage * page)
+        const commentsList = await cursor.toArray()
+        const totalNumComments = await comments.countDocuments(query)
+        return { commentsList, totalNumComments}
+    } catch (e) {
+        console.error(`Unable to issue find command, ${e}`)
+        return { commentsList: [], totalNumComments: 0 }
+    }
+}
+
+
   static async addComments(issue_id,userid, user_name, comment, createdDate) {
     try {
       const commentDoc = {

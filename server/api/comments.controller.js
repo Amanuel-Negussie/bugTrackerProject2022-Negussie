@@ -4,32 +4,28 @@ import CommentsDAO from "../dao/commentsDAO.js"
 
 export default class CommentsController {
     static async apiGetComments(req, res, next) {
-        const issuesPerPage = req.query.issuesPerPage ? parseInt(req.query.issuesPerPage) : 20
+        const commentsPerPage = req.query.commentsPerPage ? parseInt(req.query.commentsPerPage) : 20
         const page = req.query.page ? parseInt(req.query.page) : 0
         let filters = {}
-        if (req.query.title) {
-            filters.title = req.query.title
-        } else if (req.query.body) {
-            filters.body = req.query.body
-        } else if (req.query.tags) {
-            filters.tags = req.query.tags
-        } else if (req.query.users) {
-            filters.users = req.query.users
-        } else if (req.query.priority) {
-            filters.priority = req.query.priority
+        if (req.query.userid) {
+            filters.userid = req.query.userid
+        } else if (req.query.user_name) {
+            filters.user_name = req.query.user_name
+        } else if (req.query.comment) {
+            filters.comment = req.query.comment
         }
 
-        const { issuesList, totalNumIssues } = await issuesDAO1.getIssues({
+        const { commentsList, totalNumComments } = await CommentsDAO.getComments({
             filters, page,
-            issuesPerPage
+            commentsPerPage
         })
 
         let response = {
-            issues: issuesList,
+            issues: commentsList,
             page: page,
             filters: filters,
-            entries_per_page: issuesPerPage,
-            total_results: totalNumIssues,
+            entries_per_page: commentsPerPage,
+            total_results: totalNumComments,
         }
         res.status(200).json(response)
     }

@@ -62,6 +62,7 @@ export default class issuesDAO1 {
             return { issuesList: [], totalNumIssues: 0 }
         }
     }
+    
     static async getIssueByID(id) {
         try {
           const pipeline = [
