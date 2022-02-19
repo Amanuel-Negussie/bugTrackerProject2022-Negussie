@@ -24,12 +24,12 @@ export default class CommentsDAO {
 } = {}) {
     let query
     if (filters) {
-        if ("comments" in filters) {
-            query = { $text: { $search: filters['comments'] } }
+        if ("comment" in filters) {
+            query = { $text: { $search: filters['comment'] } }
         } else if ("userid" in filters) {
             query = { "userid": { $eq: filters['userid'] } }
-        } else if ("name" in filters) {
-            query = { "name": { $eq: filters['name'] } }
+        } else if ("user_name" in filters) {
+            query = { "user_name": { $eq: filters['user_name'] } }
         }
         else {
 
