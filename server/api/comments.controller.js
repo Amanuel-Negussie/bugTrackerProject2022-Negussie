@@ -55,7 +55,7 @@ export default class CommentsController {
     static async apiGetIssuesById(req, res, next) {
         try {
             let id = req.params.id || {}
-            let issues = await issuesDAO1.getIssuesByID(id)
+            let issues = await CommentsDAO.getIssuesByID(id)
             if (!issues) {
                 res.status(404).json({ error: "Not found" })
                 return
@@ -66,6 +66,36 @@ export default class CommentsController {
             res.status(500).json({ error: e })
         }
     }
+
+
+    static async apiUpdateComment(req, res, next) {
+        try {
+          const commentId = req.body._id
+          const comment = req.body.comment
+          const date = new Date()
+    
+          const commentResponse = await CommentsDAO.updateComment(
+            commentId,
+            comment,
+            date,
+          )
+    
+          var { error } = commentResponse
+          if (error) {
+            res.status(400).json({ error })
+          }
+    
+          if (commentResponse.modifiedCount === 0) {
+            throw new Error(
+              "unable to update comment - user may not be original poster",
+            )
+          }
+    
+          res.json({ status: "success" })
+        } catch (e) {
+          res.status(500).json({ error: e.message })
+        }
+      }
 
 
 }

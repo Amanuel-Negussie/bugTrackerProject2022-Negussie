@@ -18,8 +18,10 @@ router.route("/issues").get(IssuesController1.apiGetIssues)
 router.route("/issues/id/:id").get(IssuesController1.apiGetIssueById)
 router.route("/issues").post(IssuesController1.apiPostIssue)
 
-router.route("/comments").post(CommentsController.apiPostComment)
-router.route("/comments").get(CommentsController.apiGetComments)
+router.route("/comments")
+.post(CommentsController.apiPostComment)
+.get(CommentsController.apiGetComments)
+.put(CommentsController.apiUpdateComment)
 
 router
   .route("/review")

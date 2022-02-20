@@ -72,11 +72,11 @@ export default class CommentsDAO {
     }
   }
 
-  static async updateComments(reviewId, userId, text, date) {
+  static async updateComment(commentId, comment, date) {
     try {
-      const updateResponse = await reviews.updateOne(
-        { user_id: userId, _id: ObjectId(reviewId) },
-        { $set: { text: text, date: date } },
+      const updateResponse = await comments.updateOne(
+        { _id: ObjectId(commentId) },
+        { $set: { comment: comment, last_updated_date: date } },
       )
 
       return updateResponse
@@ -87,7 +87,7 @@ export default class CommentsDAO {
     }
   }
 
-  static async deleteReview(reviewId, userId) {
+  static async deleteComments(reviewId, userId) {
 
     try {
       const deleteResponse = await reviews.deleteOne({
