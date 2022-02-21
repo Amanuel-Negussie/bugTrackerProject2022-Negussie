@@ -87,17 +87,19 @@ export default class CommentsDAO {
     }
   }
 
-  static async deleteComments(reviewId, userId) {
+  static async deleteComment(commentId, userId) {
 
     try {
-      const deleteResponse = await reviews.deleteOne({
-        _id: ObjectId(reviewId),
-        user_id: userId,
+      const deleteResponse = await comments.deleteOne({
+        _id: ObjectId(commentId),
+        userid: userId,
       })
-
+      
       return deleteResponse
     } catch (e) {
-      console.error(`Unable to delete review: ${e}`)
+      console.log(_id)
+      console.log(_id)
+      console.error(`Unable to delete comment: ${e}`)
       return { error: e }
     }
   }

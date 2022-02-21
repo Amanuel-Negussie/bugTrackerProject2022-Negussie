@@ -22,6 +22,7 @@ router.route("/comments")
 .post(CommentsController.apiPostComment)
 .get(CommentsController.apiGetComments)
 .put(CommentsController.apiUpdateComment)
+.delete(CommentsController.apiDeleteComment)
 
 router
   .route("/review")

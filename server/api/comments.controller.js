@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb"
 import CommentsDAO from "../dao/commentsDAO.js"
 
 
@@ -97,5 +98,31 @@ export default class CommentsController {
         }
       }
 
+
+      static async apiDeleteComment(req, res, next) {
+        try {
+          const commentId = req.query.id
+          const userId = req.body.userid
+         
+          console.log(userId)
+          console.log(commentId)
+          
+          const commentResponse = await CommentsDAO.deleteComment(
+            commentId,
+            userId,
+          )
+        if (commentResponse.deletedCount == 0) 
+        {
+            console.log("Document unable to be deleted")
+            res.status(404).json({error: "There were no documents with the id: " + commentId})
+        }
+        else{
+            console.log("DELETED " + commentResponse.deletedCount + " document.")
+            res.status(204).json()
+        }     
+        } catch (e) {
+          res.status(500).json({ error: e.message })
+        }
+      }
 
 }
