@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import Message from '../components/Message'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import FormContainer from '../components/FormContainer'
 import { useForm } from 'react-hook-form'
 
@@ -61,8 +61,7 @@ const ProfileScreen = () => {
       )}
       {isLoading && (
         <div className='text-center'>
-          <Loader
-            type='ThreeDots'
+          <ThreeDots
             color='#00BFFF'
             height={100}
             width={100}

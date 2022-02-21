@@ -2,7 +2,7 @@ import http from "../http-common";
 
 class RestaurantDataService {
     getAll(page = 0) {
-      return http.get(`/issues?page=${page}`);
+      return http.get(`/issues/?page=${page}`);
     }
   
     get(id) {

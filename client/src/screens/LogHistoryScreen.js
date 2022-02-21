@@ -5,7 +5,7 @@ import moment from 'moment'
 import { getUsersLog } from '../api/users'
 import { useQuery, useQueryClient } from 'react-query'
 
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import Pagination from '../components/Pagination'
 
 const UserLogHistoryScreen = () => {
@@ -49,8 +49,7 @@ const UserLogHistoryScreen = () => {
 
       {isLoading ? (
         <div className='text-center'>
-          <Loader
-            type='ThreeDots'
+          <ThreeDots
             color='#00BFFF'
             height={100}
             width={100}

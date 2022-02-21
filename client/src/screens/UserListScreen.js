@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Message from '../components/Message'
-import Loader from 'react-loader-spinner'
+import {ThreeDots} from 'react-loader-spinner'
 import {
   FaCheckCircle,
   FaEdit,
@@ -166,8 +166,7 @@ const UserListScreen = () => {
             <div className='modal-body'>
               {isLoading ? (
                 <div className='text-center'>
-                  <Loader
-                    type='ThreeDots'
+                  <ThreeDots
                     color='#00BFFF'
                     height={100}
                     width={100}
@@ -295,8 +294,7 @@ const UserListScreen = () => {
 
       {isLoading ? (
         <div className='text-center'>
-          <Loader
-            type='ThreeDots'
+          <ThreeDots
             color='#00BFFF'
             height={100}
             width={100}
