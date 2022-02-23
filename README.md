@@ -181,4 +181,8 @@ PORT = 5000 //starting port of the server, PORT NUMBER can be any open PORT. In 
 2. The **ISSUES_NS** ariable stores the namespace of the database. 
 3. THE **PORT** variable stores the starting port of the server.
 
+
 #### d) Connect to Database and Start Server - *index.js*
+
+#### e) Image of MongoDB Search Index
+<img width="1329" alt="Screen Shot 2022-02-22 at 11 40 21 PM" src="https://user-images.githubusercontent.com/74369791/155262716-bdf1f059-eb92-4da2-8144-5d66e3625b74.png">
